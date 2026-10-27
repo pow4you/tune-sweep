@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		C80B559B3090C64400A7DF38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C80B55833090C64300A7DF38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C80B558A3090C64300A7DF38;
+			remoteInfo = "tune-sweep";
+		};
+		C80B55A53090C64400A7DF38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C80B55833090C64300A7DF38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C80B558A3090C64300A7DF38;
+			remoteInfo = "tune-sweep";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C80B558B3090C64300A7DF38 /* tune-sweep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tune-sweep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C80B559A3090C64400A7DF38 /* tune-sweepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tune-sweepTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C80B55A43090C64400A7DF38 /* tune-sweepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tune-sweepUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C80B558D3090C64300A7DF38 /* tune-sweep */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "tune-sweep";
+			sourceTree = "<group>";
+		};
+		C80B559D3090C64400A7DF38 /* tune-sweepTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "tune-sweepTests";
+			sourceTree = "<group>";
+		};
+		C80B55A73090C64400A7DF38 /* tune-sweepUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "tune-sweepUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C80B55883090C64300A7DF38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		C80B55973090C64400A7DF38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		C80B55A13090C64400A7DF38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C80B55823090C64300A7DF38 = {
+			isa = PBXGroup;
+			children = (
+				C80B558D3090C64300A7DF38 /* tune-sweep */,
+				C80B559D3090C64400A7DF38 /* tune-sweepTests */,
+				C80B55A73090C64400A7DF38 /* tune-sweepUITests */,
+				C80B558C3090C64300A7DF38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C80B558C3090C64300A7DF38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C80B558B3090C64300A7DF38 /* tune-sweep.app */,
+				C80B559A3090C64400A7DF38 /* tune-sweepTests.xctest */,
+				C80B55A43090C64400A7DF38 /* tune-sweepUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C80B558A3090C64300A7DF38 /* tune-sweep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C80B55AC3090C64400A7DF38 /* Build configuration list for PBXNativeTarget "tune-sweep" */;
+			buildPhases = (
+				C80B55873090C64300A7DF38 /* Sources */,
+				C80B55883090C64300A7DF38 /* Frameworks */,
+				C80B55893090C64300A7DF38 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				C80B558D3090C64300A7DF38 /* tune-sweep */,
+			);
+			name = "tune-sweep";
+			productName = "tune-sweep";
+			productReference = C80B558B3090C64300A7DF38 /* tune-sweep.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C80B55993090C64400A7DF38 /* tune-sweepTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C80B55AF3090C64400A7DF38 /* Build configuration list for PBXNativeTarget "tune-sweepTests" */;
+			buildPhases = (
+				C80B55963090C64400A7DF38 /* Sources */,
+				C80B55973090C64400A7DF38 /* Frameworks */,
+				C80B55983090C64400A7DF38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C80B559C3090C64400A7DF38 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C80B559D3090C64400A7DF38 /* tune-sweepTests */,
+			);
+			name = "tune-sweepTests";
+			productName = "tune-sweepTests";
+			productReference = C80B559A3090C64400A7DF38 /* tune-sweepTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C80B55A33090C64400A7DF38 /* tune-sweepUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C80B55B23090C64400A7DF38 /* Build configuration list for PBXNativeTarget "tune-sweepUITests" */;
+			buildPhases = (
+				C80B55A03090C64400A7DF38 /* Sources */,
+				C80B55A13090C64400A7DF38 /* Frameworks */,
+				C80B55A23090C64400A7DF38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C80B55A63090C64400A7DF38 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C80B55A73090C64400A7DF38 /* tune-sweepUITests */,
+			);
+			name = "tune-sweepUITests";
+			productName = "tune-sweepUITests";
+			productReference = C80B55A43090C64400A7DF38 /* tune-sweepUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C80B55833090C64300A7DF38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2710;
+				LastUpgradeCheck = 2710;
+				TargetAttributes = {
+					C80B558A3090C64300A7DF38 = {
+						CreatedOnToolsVersion = 27.1;
+					};
+					C80B55993090C64400A7DF38 = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = C80B558A3090C64300A7DF38;
+					};
+					C80B55A33090C64400A7DF38 = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = C80B558A3090C64300A7DF38;
+					};
+				};
+			};
+			buildConfigurationList = C80B55863090C64300A7DF38 /* Build configuration list for PBXProject "tune-sweep" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C80B55823090C64300A7DF38;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C80B558C3090C64300A7DF38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C80B558A3090C64300A7DF38 /* tune-sweep */,
+				C80B55993090C64400A7DF38 /* tune-sweepTests */,
+				C80B55A33090C64400A7DF38 /* tune-sweepUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C80B55893090C64300A7DF38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		C80B55983090C64400A7DF38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		C80B55A23090C64400A7DF38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C80B55873090C64300A7DF38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		C80B55963090C64400A7DF38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		C80B55A03090C64400A7DF38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C80B559C3090C64400A7DF38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C80B558A3090C64300A7DF38 /* tune-sweep */;
+			targetProxy = C80B559B3090C64400A7DF38 /* PBXContainerItemProxy */;
+		};
+		C80B55A63090C64400A7DF38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C80B558A3090C64300A7DF38 /* tune-sweep */;
+			targetProxy = C80B55A53090C64400A7DF38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C80B55AA3090C64400A7DF38 /* Debug configuration for PBXProject "tune-sweep" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C80B55AB3090C64400A7DF38 /* Release configuration for PBXProject "tune-sweep" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C80B55AD3090C64400A7DF38 /* Debug configuration for PBXNativeTarget "tune-sweep" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pow.tune-sweep";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C80B55AE3090C64400A7DF38 /* Release configuration for PBXNativeTarget "tune-sweep" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pow.tune-sweep";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C80B55B03090C64400A7DF38 /* Debug configuration for PBXNativeTarget "tune-sweepTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pow.tune-sweepTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tune-sweep.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tune-sweep";
+			};
+			name = Debug;
+		};
+		C80B55B13090C64400A7DF38 /* Release configuration for PBXNativeTarget "tune-sweepTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pow.tune-sweepTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tune-sweep.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tune-sweep";
+			};
+			name = Release;
+		};
+		C80B55B33090C64400A7DF38 /* Debug configuration for PBXNativeTarget "tune-sweepUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pow.tune-sweepUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "tune-sweep";
+			};
+			name = Debug;
+		};
+		C80B55B43090C64400A7DF38 /* Release configuration for PBXNativeTarget "tune-sweepUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pow.tune-sweepUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "tune-sweep";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C80B55863090C64300A7DF38 /* Build configuration list for PBXProject "tune-sweep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C80B55AA3090C64400A7DF38 /* Debug configuration for PBXProject "tune-sweep" */,
+				C80B55AB3090C64400A7DF38 /* Release configuration for PBXProject "tune-sweep" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		C80B55AC3090C64400A7DF38 /* Build configuration list for PBXNativeTarget "tune-sweep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C80B55AD3090C64400A7DF38 /* Debug configuration for PBXNativeTarget "tune-sweep" */,
+				C80B55AE3090C64400A7DF38 /* Release configuration for PBXNativeTarget "tune-sweep" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		C80B55AF3090C64400A7DF38 /* Build configuration list for PBXNativeTarget "tune-sweepTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C80B55B03090C64400A7DF38 /* Debug configuration for PBXNativeTarget "tune-sweepTests" */,
+				C80B55B13090C64400A7DF38 /* Release configuration for PBXNativeTarget "tune-sweepTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		C80B55B23090C64400A7DF38 /* Build configuration list for PBXNativeTarget "tune-sweepUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C80B55B33090C64400A7DF38 /* Debug configuration for PBXNativeTarget "tune-sweepUITests" */,
+				C80B55B43090C64400A7DF38 /* Release configuration for PBXNativeTarget "tune-sweepUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C80B55833090C64300A7DF38 /* Project object */;
+	validationLevel = 1;
+}
