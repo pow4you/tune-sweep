@@ -53,7 +53,7 @@ struct PlaybackControlsView: View {
     }
 
     private func replaySong() {
-        player.playheadPosition = 0
+        player.seek(to: 0)
     }
 
     private func backwardSong() {
@@ -65,14 +65,11 @@ struct PlaybackControlsView: View {
     }
 
     private func forwardSong() {
-        player.playheadPosition = min(
-            player.currentSong?.duration ?? 1,
-            player.playheadPosition + 5
-        )
+        player.seek(to: min(player.duration, player.playheadPosition + 5))
     }
 
     private func skipSong() {
-        player.playheadPosition = player.currentSong?.duration ?? 1
+        player.seek(to: player.duration)
     }
 }
 
