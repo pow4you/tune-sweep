@@ -67,8 +67,12 @@ final class PlayerModel: ObservableObject {
         }
     }
 
-    func seek(to seconds: Double) {
-        player.seek(to: CMTime(seconds: seconds, preferredTimescale: 666))
+    func seek(to seconds: Double, completion: ((Bool) -> Void)? = nil) {
+        player.seek(to: CMTime(seconds: seconds, preferredTimescale: 666)){ finished in
+            Task { @MainActor in
+                completion?(finished)
+            }
+        }
         playheadPosition = seconds
     }
 }

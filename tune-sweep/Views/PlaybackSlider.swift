@@ -43,8 +43,10 @@ struct PlaybackSlider: View {
                 scrubPosition = nowPlaying.playheadPosition
                 isScrubbing = true
             } else {
-                nowPlaying.seek(to: scrubPosition)
-                isScrubbing = false
+                nowPlaying.seek(to: scrubPosition) { finished in
+                    if finished { isScrubbing = false }
+                }
+                
             }
         }
         .containerRelativeFrame(.horizontal) { length, _ in
