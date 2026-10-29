@@ -12,6 +12,8 @@ import SwiftData
 struct tune_sweepApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
+            Playlist.self,
+            Song.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

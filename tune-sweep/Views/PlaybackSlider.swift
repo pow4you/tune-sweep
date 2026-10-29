@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct PlaybackSlider: View {
-    @ObservedObject var nowPlaying: SongModel
+    @ObservedObject var nowPlaying: PlayerModel
 
     var body: some View {
         Slider(
             value: $nowPlaying.playheadPosition,
-            in: 0...max(nowPlaying.duration, 1),
+            in: 0...max(nowPlaying.currentSong?.duration ?? 1, 1),
             step: 0.666
         ) {
             Text("Playback position")
@@ -24,7 +24,7 @@ struct PlaybackSlider: View {
             )
         } maximumValueLabel: {
             Text(
-                Duration.seconds(nowPlaying.duration)
+                Duration.seconds(nowPlaying.currentSong?.duration ?? 1)
                     .formatted(.time(pattern: .minuteSecond))
             )
         }
@@ -35,6 +35,6 @@ struct PlaybackSlider: View {
 }
 
 #Preview {
-    PlaybackSlider(nowPlaying: SongModel())
+    PlaybackSlider(nowPlaying: PlayerModel())
         .padding()
 }
