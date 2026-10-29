@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlaybackControlsView: View {
-    @ObservedObject var nowPlaying: PlayerModel
+    @ObservedObject var player: PlayerModel
 
     var body: some View {
         HStack {
@@ -30,7 +30,7 @@ struct PlaybackControlsView: View {
             Button {
                 togglePlaySong()
             } label: {
-                Image(systemName: nowPlaying.isPlaying ? "pause.fill" : "play.fill")
+                Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
                     .frame(width: 64)
                     .font(.system(size: 36))
             }
@@ -53,30 +53,30 @@ struct PlaybackControlsView: View {
     }
 
     private func replaySong() {
-        nowPlaying.playheadPosition = 0
+        player.playheadPosition = 0
     }
 
     private func backwardSong() {
-        nowPlaying.playheadPosition = max(0, nowPlaying.playheadPosition - 5)
+        player.playheadPosition = max(0, player.playheadPosition - 5)
     }
 
     private func togglePlaySong() {
-        nowPlaying.isPlaying.toggle()
+        player.isPlaying.toggle()
     }
 
     private func forwardSong() {
-        nowPlaying.playheadPosition = min(
-            nowPlaying.currentSong?.duration ?? 1,
-            nowPlaying.playheadPosition + 5
+        player.playheadPosition = min(
+            player.currentSong?.duration ?? 1,
+            player.playheadPosition + 5
         )
     }
 
     private func skipSong() {
-        nowPlaying.playheadPosition = nowPlaying.currentSong?.duration ?? 1
+        player.playheadPosition = player.currentSong?.duration ?? 1
     }
 }
 
 #Preview {
-    PlaybackControlsView(nowPlaying: PlayerModel())
+    PlaybackControlsView(player: PlayerModel())
         .padding()
 }

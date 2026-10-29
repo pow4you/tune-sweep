@@ -24,7 +24,7 @@ struct PlaybackSlider: View {
             )
         } maximumValueLabel: {
             Text(
-                Duration.seconds(nowPlaying.currentSong?.duration ?? 1)
+                Duration.seconds(nowPlaying.duration)
                     .formatted(.time(pattern: .minuteSecond))
             )
         }
