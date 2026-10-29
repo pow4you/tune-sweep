@@ -57,11 +57,11 @@ struct PlaybackControlsView: View {
     }
 
     private func backwardSong() {
-        player.playheadPosition = max(0, player.playheadPosition - 5)
+        player.seek(to: max(0, player.playheadPosition - 5))
     }
 
     private func togglePlaySong() {
-        player.isPlaying.toggle()
+        player.togglePlay()
     }
 
     private func forwardSong() {

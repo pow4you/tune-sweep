@@ -30,7 +30,7 @@ final class PlayerModel: ObservableObject {
 
         // 2. playheadPosition follows the player
         timeObserver = player.addPeriodicTimeObserver(
-            forInterval: CMTime(seconds: 0.5, preferredTimescale: 600),
+            forInterval: CMTime(seconds: 0.5, preferredTimescale: 666),
             queue: .main
         ) { [weak self] time in
             Task { @MainActor in
@@ -54,5 +54,21 @@ final class PlayerModel: ObservableObject {
         }
     }
 
-    // togglePlay, seek, ...
+    func togglePlay() {
+        // if isPlaying: pause the player, else play it, then update isPlaying
+        if(isPlaying) {
+            player.pause()
+            
+            isPlaying = false
+        } else {
+            player.play()
+            
+            isPlaying = true;
+        }
+    }
+
+    func seek(to seconds: Double) {
+        player.seek(to: CMTime(seconds: seconds, preferredTimescale: 666))
+        playheadPosition = seconds
+    }
 }
