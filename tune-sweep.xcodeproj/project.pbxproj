@@ -6,6 +6,12 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C80B55CF3093D69800A7DF38 /* next_steps.md in Resources */ = {isa = PBXBuildFile; fileRef = C80B55CD3093D68900A7DF38 /* next_steps.md */; };
+		C80B55D7309409BC00A7DF38 /* main page.png in Resources */ = {isa = PBXBuildFile; fileRef = C80B55D6309409BC00A7DF38 /* main page.png */; };
+		C80B55DB30940E0400A7DF38 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C80B55DA30940E0400A7DF38 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C80B559B3090C64400A7DF38 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +33,9 @@
 		C80B558B3090C64300A7DF38 /* tune-sweep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tune-sweep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C80B559A3090C64400A7DF38 /* tune-sweepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tune-sweepTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C80B55A43090C64400A7DF38 /* tune-sweepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tune-sweepUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C80B55CD3093D68900A7DF38 /* next_steps.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = next_steps.md; sourceTree = "<group>"; };
+		C80B55D6309409BC00A7DF38 /* main page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main page.png"; sourceTree = "<group>"; };
+		C80B55DA30940E0400A7DF38 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -82,6 +91,9 @@
 		C80B55823090C64300A7DF38 = {
 			isa = PBXGroup;
 			children = (
+				C80B55DA30940E0400A7DF38 /* README.md */,
+				C80B55CD3093D68900A7DF38 /* next_steps.md */,
+				C80B55D6309409BC00A7DF38 /* main page.png */,
 				C80B558D3090C64300A7DF38 /* tune-sweep */,
 				C80B559D3090C64400A7DF38 /* tune-sweepTests */,
 				C80B55A73090C64400A7DF38 /* tune-sweepUITests */,
@@ -210,6 +222,9 @@
 		C80B55893090C64300A7DF38 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				C80B55CF3093D69800A7DF38 /* next_steps.md in Resources */,
+				C80B55DB30940E0400A7DF38 /* README.md in Resources */,
+				C80B55D7309409BC00A7DF38 /* main page.png in Resources */,
 			);
 		};
 		C80B55983090C64400A7DF38 /* Resources */ = {
