@@ -16,8 +16,8 @@ The long-term idea: a small, no-nonsense player that can also pull whole playlis
 
 ## Roadmap
 
-- [ ] Lock-screen and Control Center controls (audio session, now-playing info, remote commands)
-- [ ] Background playback
+- [x] Lock-screen and Control Center controls (audio session, now-playing info, remote commands)
+- [x] Background playback
 - [ ] Song list and playlist views backed by SwiftData
 - [ ] Queue, next / previous, shuffle
 - [ ] Local library: import audio files, read title / artist / duration from the file

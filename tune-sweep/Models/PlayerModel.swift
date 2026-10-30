@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import AVFoundation
 import MediaPlayer
-
+import UIKit
 
 @MainActor
 final class PlayerModel: ObservableObject {
@@ -24,23 +24,41 @@ final class PlayerModel: ObservableObject {
 
     
     private func configureAudioSession() {
+        let session = AVAudioSession.sharedInstance()
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback)
-            try AVAudioSession.sharedInstance().setActive(true)
+            try session.setCategory(.playback)
         } catch {
-            print("Audio session error: \(error)")
+            print("Audio session category error: \(error)")
+        }
+
+        Task.detached {
+            do {
+                try session.setActive(true)
+            } catch {
+                print("Audio session activation error: \(error)")
+            }
+            print("audio session active")
         }
     }
     
-    private func updateNowPlaying() {
+    private func updateNowPlaying(isPlaying playing: Bool? = nil) {
+        print("updateNowPlaying called, song: \(currentSong?.title ?? "nil"), playing: \(isPlaying)")
+
         guard let song = currentSong else { return }
+        let rate = (playing ?? isPlaying) ? 1.0 : 0.0
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [
+            MPNowPlayingInfoPropertyMediaType: MPNowPlayingInfoMediaType.audio.rawValue,
             MPMediaItemPropertyTitle: song.title,
             MPMediaItemPropertyArtist: song.artist,
             MPMediaItemPropertyPlaybackDuration: duration,
-            MPNowPlayingInfoPropertyElapsedPlaybackTime: playheadPosition,
-            MPNowPlayingInfoPropertyPlaybackRate: isPlaying ? 1.0 : 0.0
+            MPNowPlayingInfoPropertyElapsedPlaybackTime: player.currentTime().seconds,
+            MPNowPlayingInfoPropertyPlaybackRate: rate
         ]
+        
+        MPNowPlayingInfoCenter.default().playbackState = isPlaying ? .playing : .paused
+        
+        print("nowPlayingInfo:", MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:])
+        
     }
     
     private func setupRemoteCommands() {
@@ -85,6 +103,8 @@ final class PlayerModel: ObservableObject {
             Task { @MainActor in self?.seek(to: position) }
             return .success
         }
+        print("remote commands registered")
+
     }
     
     init() {
@@ -104,14 +124,20 @@ final class PlayerModel: ObservableObject {
             }
         }
         
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        setupRemoteCommands()
+        
         configureAudioSession()
         
         $isPlaying
             .dropFirst()
-            .sink { [weak self] _ in self?.updateNowPlaying() }
+            .sink { [weak self] playing in
+                self?.updateNowPlaying(isPlaying: playing)
+            }
             .store(in: &cancellables)
         
-        setupRemoteCommands()
+        
     }
 
     func play(_ song: Song) {
