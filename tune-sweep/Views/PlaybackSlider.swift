@@ -17,6 +17,7 @@ struct PlaybackSlider: View {
     private var shownPosition: Double {
         isScrubbing ? scrubPosition : nowPlaying.playheadPosition
     }
+    
 
     var body: some View {
         Slider(
@@ -24,8 +25,7 @@ struct PlaybackSlider: View {
                 get: { shownPosition },
                 set: { scrubPosition = $0 }
             ),
-            in: 0...max(nowPlaying.duration, 1),
-            step: 0.666
+            in: 0...max(nowPlaying.duration, 1)
         ) {
             Text("Playback position")
         } minimumValueLabel: {
