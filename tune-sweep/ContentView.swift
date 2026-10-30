@@ -6,13 +6,25 @@ struct ContentView: View {
 
     @StateObject private var player = PlayerModel()
     
+    @Query private var songs: [Song]
+    
     var body: some View {
         VStack(spacing: 24) {
             Button("Play mock") {
-                player.play(Song(title: "Test", artist: "Me", duration: 180, fileName:"test.mp3" ))
+                let source = SongSource.file("test.mp3")
+                if let existing = songs.first(where: { $0.source == source }) {
+                    player.play(existing)
+                } else {
+                    Task {
+                        if let song = await SongImporter.makeSong(fileName: "test.mp3") {
+                            modelContext.insert(song)
+                            player.play(song)
+                        }
+                    }
+                }
             }
             
-            AlbumArtworkView()
+            AlbumArtworkView(image: player.artwork)
 
             Text(player.currentSong?.title ?? "No song selected")
                 .font(.system(size: 24, weight: .bold))

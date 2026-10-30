@@ -13,54 +13,122 @@ import UIKit
 
 @MainActor
 final class PlayerModel: ObservableObject {
+
+    // MARK: - State
+
     @Published var currentSong: Song?
     @Published var playheadPosition: Double = 0
     @Published var isPlaying: Bool = false
-    @Published var duration: Double = 0
-    
+    @Published var artwork: UIImage?          // decoded from song.artworkData
+
+    /// Comes from the Song (read from the file at import time).
+    var duration: Double { currentSong?.duration ?? 0 }
+
     private let player = AVPlayer()
     private var timeObserver: Any?
     private var cancellables = Set<AnyCancellable>()
 
-    
-    private func configureAudioSession() {
-        let session = AVAudioSession.sharedInstance()
-        do {
-            try session.setCategory(.playback)
-        } catch {
-            print("Audio session category error: \(error)")
+    // MARK: - Init
+
+    init() {
+        // isPlaying follows the player
+        player.publisher(for: \.timeControlStatus)
+            .receive(on: DispatchQueue.main)
+            .map { $0 == .playing }
+            .assign(to: &$isPlaying)
+
+        // playheadPosition follows the player
+        timeObserver = player.addPeriodicTimeObserver(
+            forInterval: CMTime(seconds: 0.666, preferredTimescale: 600),
+            queue: .main
+        ) { [weak self] time in
+            Task { @MainActor in
+                self?.playheadPosition = time.seconds
+            }
         }
 
-        Task.detached {
-            do {
-                try session.setActive(true)
-            } catch {
-                print("Audio session activation error: \(error)")
+        // lock screen rate follows play/pause (also when iOS pauses us)
+        $isPlaying
+            .dropFirst()
+            .sink { [weak self] playing in
+                self?.updateNowPlaying(isPlaying: playing)
             }
-            print("audio session active")
+            .store(in: &cancellables)
+
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        configureAudioSession()
+        setupRemoteCommands()
+    }
+
+    // MARK: - Playing a song
+
+    func play(_ song: Song) {
+        guard let url = song.playbackURL else {
+            print("Can't resolve playback URL for \(song.title)")
+            return
+        }
+        currentSong = song
+        artwork = song.artworkData.flatMap { UIImage(data: $0) }
+        playheadPosition = 0
+        player.replaceCurrentItem(with: AVPlayerItem(url: url))
+        player.play()
+        updateNowPlaying()
+    }
+
+    // MARK: - Controls (used by the buttons AND the lock screen)
+
+    func resume() { player.play() }
+    func pause()  { player.pause() }
+
+    func togglePlay() {
+        isPlaying ? pause() : resume()
+    }
+
+    func seek(to seconds: Double, completion: ((Bool) -> Void)? = nil) {
+        playheadPosition = seconds
+        player.seek(to: CMTime(seconds: seconds, preferredTimescale: 600)) { [weak self] finished in
+            Task { @MainActor in
+                self?.updateNowPlaying()
+                completion?(finished)
+            }
         }
     }
-    
-    private func updateNowPlaying(isPlaying playing: Bool? = nil) {
-        print("updateNowPlaying called, song: \(currentSong?.title ?? "nil"), playing: \(isPlaying)")
 
+    func skip(by seconds: Double) {
+        seek(to: min(max(0, playheadPosition + seconds), duration))
+    }
+
+    func restart() { seek(to: 0) }
+
+    func next() { seek(to: duration) }   // placeholder until there is a queue
+    func previous() { restart() }        // placeholder until there is a queue
+
+    // MARK: - Lock screen: now playing info
+
+    private func updateNowPlaying(isPlaying playing: Bool? = nil) {
         guard let song = currentSong else { return }
-        let rate = (playing ?? isPlaying) ? 1.0 : 0.0
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [
+
+        var info: [String: Any] = [
             MPNowPlayingInfoPropertyMediaType: MPNowPlayingInfoMediaType.audio.rawValue,
             MPMediaItemPropertyTitle: song.title,
-            MPMediaItemPropertyArtist: song.artist,
             MPMediaItemPropertyPlaybackDuration: duration,
             MPNowPlayingInfoPropertyElapsedPlaybackTime: player.currentTime().seconds,
-            MPNowPlayingInfoPropertyPlaybackRate: rate
+            MPNowPlayingInfoPropertyPlaybackRate: (playing ?? isPlaying) ? 1.0 : 0.0
         ]
-        
-        MPNowPlayingInfoCenter.default().playbackState = isPlaying ? .playing : .paused
-        
-        print("nowPlayingInfo:", MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:])
-        
+        if let artist = song.artist { info[MPMediaItemPropertyArtist] = artist }
+        if let album = song.album { info[MPMediaItemPropertyAlbumTitle] = album }
+        if let artwork { info[MPMediaItemPropertyArtwork] = Self.makeArtwork(artwork) }
+
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
-    
+
+    // nonisolated on purpose: iOS calls the artwork closure from a background thread
+    nonisolated static func makeArtwork(_ image: UIImage) -> MPMediaItemArtwork {
+        MPMediaItemArtwork(boundsSize: image.size) { _ in image }
+    }
+
+    // MARK: - Lock screen: remote commands
+
     private func setupRemoteCommands() {
         let cc = MPRemoteCommandCenter.shared()
 
@@ -103,88 +171,24 @@ final class PlayerModel: ObservableObject {
             Task { @MainActor in self?.seek(to: position) }
             return .success
         }
-        print("remote commands registered")
-
     }
-    
-    init() {
-        // 1. isPlaying follows the player
-        player.publisher(for: \.timeControlStatus)
-            .receive(on: DispatchQueue.main)
-            .map { $0 == .playing }
-            .assign(to: &$isPlaying)
 
-        // 2. playheadPosition follows the player
-        timeObserver = player.addPeriodicTimeObserver(
-            forInterval: CMTime(seconds: 0.666, preferredTimescale: 600),
-            queue: .main
-        ) { [weak self] time in
-            Task { @MainActor in
-                self?.playheadPosition = time.seconds
-            }
+    // MARK: - Audio session
+
+    private func configureAudioSession() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch {
+            print("Audio session category error: \(error)")
         }
-        
-        UIApplication.shared.beginReceivingRemoteControlEvents()
-        
-        setupRemoteCommands()
-        
-        configureAudioSession()
-        
-        $isPlaying
-            .dropFirst()
-            .sink { [weak self] playing in
-                self?.updateNowPlaying(isPlaying: playing)
-            }
-            .store(in: &cancellables)
-        
-        
-    }
 
-    func play(_ song: Song) {
-        guard let url = Bundle.main.url(forResource: song.fileName, withExtension: nil) else { return }
-
-        let item = AVPlayerItem(url: url)
-        currentSong = song
-        player.replaceCurrentItem(with: item)
-        player.play()
-
-        Task {
-            if let time = try? await item.asset.load(.duration) {
-                duration = time.seconds
+        // setActive can block, so keep it off the main thread
+        Task.detached {
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+                print("Audio session activation error: \(error)")
             }
         }
     }
-    
-    
-    
-    
-    
-    
-
-    func resume() { player.play() }
-    func pause()  { player.pause() }
-
-    func togglePlay() {
-        isPlaying ? pause() : resume()
-    }
-
-    
-    
-    func seek(to seconds: Double, completion: ((Bool) -> Void)? = nil) {
-        player.seek(to: CMTime(seconds: seconds, preferredTimescale: 666)){ finished in
-            Task { @MainActor in
-                completion?(finished)
-            }
-        }
-        playheadPosition = seconds
-    }
-
-    func skip(by seconds: Double) {
-        seek(to: min(max(0, playheadPosition + seconds), duration))
-    }
-
-    func restart() { seek(to: 0) }
-
-    func next() { seek(to: duration) }   // placeholder until you have a queue
-    func previous() { restart() }        // same
 }

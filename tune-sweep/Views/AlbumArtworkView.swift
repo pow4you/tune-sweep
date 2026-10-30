@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AlbumArtworkView: View {
+    let image: UIImage?
+
     var body: some View {
         Color.clear
             .aspectRatio(1, contentMode: .fit)
@@ -15,7 +17,7 @@ struct AlbumArtworkView: View {
                 length * 0.62
             }
             .overlay {
-                Image(.cover)
+                Image(uiImage: image ?? .defaultCover)
                     .resizable()
                     .scaledToFill()
             }
@@ -25,5 +27,6 @@ struct AlbumArtworkView: View {
 }
 
 #Preview {
-    AlbumArtworkView()
+    AlbumArtworkView(image: nil)
+        .padding()
 }
